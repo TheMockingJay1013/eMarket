@@ -4,5 +4,43 @@
 {%endblock%}
 
 {%block content%}
-    <h1>The Front Page</h1>
+{% if request.user.is_authenticated %}
+    <div class = "mx-auto text-lg text-gray-500 text-center">Welcome {{request.user.username}} ! </div>
+{% endif %}
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl ">
+        <h1 class="mb-12 text-4xl text-center">Newest Items</h1>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+                <div>
+                    <a href="{% url 'item:detail' pk=item.id %}">
+                    <div>
+                        <img src = "{{item.image.url}}" class= "rounded-t-xl">
+                    </div>
+                    <div class="p-6 bg-white rounder-b-xl">
+                        <h2 class =" text-2xl">{{item.name}}</h2>
+                        <p class="text-gray-500">Price : ${{item.price}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor%}
+        </div>
+    </div>
+
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl ">
+        <h1 class="mb-12 text-4xl text-center">Categories</h1>
+
+        <div class="grid grid-cols-3 gap-3">
+            {%for category in categories%}
+                <div>
+                    <a href="#"></a>
+                    <div class="p-6 bg-white rounder-b-xl">
+                        <h2 class =" text-2xl">{{category.name}}</h2>
+                        <p class="text-gray-500">{{category.items.count}}</p>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+
 {%endblock%}
