@@ -23,13 +23,13 @@ This website allows users to :
   ```
   pip install Django
   ```
-- Also install pillow by
+- Also install pillow (for loading media files) by
   ```
   pip install Pillow
   ```
 - move to the directory of the project using cd commands
 
-- make the migrations using the commands
+- In the project directory , make the migrations using the commands
   ```
   python manage.py makemigrations
   python manage,py migrate
