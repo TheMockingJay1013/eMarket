@@ -48,3 +48,4 @@ This website allows users to :
 - adding About , Contact , Privacy policy and terms of use pages
 - Create portal for user to pay the seller
 - Add animations to UI
+- email verification
