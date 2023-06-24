@@ -11,3 +11,7 @@ This website allows users to :
 - filter products based on product categeory or search result
 
 
+## Installation Steps
+
+- Download the files to your device by creating a clone of this project
+  ``` git clone https://github.com/TheMockingJay1013/eMarket.git ```
