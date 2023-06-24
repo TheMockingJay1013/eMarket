@@ -3,7 +3,8 @@
 A website for buying and selling used items , made using HTML , CSS and Django
 
 ## Features of the website 
-This website allows users to : 
+This website allows users to :
+- Signup to the website
 - login / logout
 - View the different items put up for sale and inspect them in detail
 - sell their own products by uploading product details to the website
