@@ -13,6 +13,8 @@ This website allows users to :
 
 ## Installation Steps
 
+### It is recommended to to run this project in a python environment
+
 - Download the files to your device by creating a clone of this project.
   
   On a new terminal , run the command
