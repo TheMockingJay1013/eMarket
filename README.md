@@ -19,3 +19,23 @@ This website allows users to :
   ```
   git clone https://github.com/TheMockingJay1013/eMarket.git
   ```
+- To install Django run
+  ```
+  pip install Django
+  ```
+- Also install pillow by
+  ```
+  pip install Pillow
+  ```
+- move to the directory of the project using cd commands
+
+- make the migrations using the commands
+  ```
+  python manage.py makemigrations
+  python manage,py migrate
+  ```
+- Run the server using the command
+  ```
+  python manage.py runserver
+  ```
+- Open this link to view the website [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
