@@ -1,9 +1,26 @@
 from django.shortcuts import render,redirect
 from django.shortcuts import get_object_or_404
-from .models import Item
+from .models import Item,Category
 from django.contrib.auth.decorators import login_required
-from .forms import NewItemForm
+from .forms import NewItemForm,EditItemForm
+from django.db.models import Q
+
+
 # Create your views here.
+
+def items(request) :
+    query=request.GET.get('query','')
+    catgories=Category.objects.all()
+    items=Item.objects.filter(is_sold=False)
+    category_id=request.GET.get('category',0)
+    
+    if category_id :
+        items=items.filter(category_id=category_id)
+    
+    if query :
+        items=items.filter(Q(name__icontains=query) | Q(description__icontains=query))
+    
+    return render(request,'item/items.html',{'items':items,'query':query,'categories':catgories,'category_id':int(category_id)})
 
 def detail(request,pk) :
     item=get_object_or_404(Item,pk=pk)
@@ -25,3 +42,24 @@ def new(request) :
     
     return render(request,'item/form.html',{'form':form ,'title':'New Item'})
     
+@login_required
+def delete(request,pk) :
+    item=get_object_or_404(Item,pk=pk)
+    item.delete()
+    
+    return redirect('dashboard:index')
+
+@login_required
+def edit(request,pk) :
+    item=get_object_or_404(Item,pk=pk)
+    
+    if request.method=='POST' :
+        form=EditItemForm(request.POST,request.FILES,instance=item)
+        if form.is_valid():
+            form.save()
+            
+            return redirect("item:detail",pk=item.id)
+            
+    form=EditItemForm(instance=item)
+    
+    return render(request,'item/form.html',{'form':form ,'title':'Edit Item'})
