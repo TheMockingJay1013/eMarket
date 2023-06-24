@@ -15,4 +15,4 @@ This website allows users to :
 
 - Download the files to your device by creating a clone of this project.
   
-  On a new terminal , run the command `` git clone https://github.com/TheMockingJay1013/eMarket.git ``
+  On a new terminal , run the command ``` git clone https://github.com/TheMockingJay1013/eMarket.git ```
